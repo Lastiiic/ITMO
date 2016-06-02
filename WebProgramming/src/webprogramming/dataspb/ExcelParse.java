@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ExcelParse {
 	public static ArrayList<ConcertOrganization> Parse() throws IOException {
-		InputStream in = new FileInputStream("/Concert_organizations_2016-03-16.xlsx");
+		InputStream in = new FileInputStream("WEB-INF/excel/Concert_organizations_2016-03-16.xlsx");
 		XSSFWorkbook wb = new XSSFWorkbook(in);
 		ArrayList<ConcertOrganization> listOfConcertOrganization = new ArrayList<ConcertOrganization>();
 		Sheet sheet = wb.getSheetAt(0);

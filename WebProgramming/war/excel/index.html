@@ -90,23 +90,6 @@
 				</form>
 				<button id="comparsionButton" class="btn btn-primary">Узнай какое из них ближе к 10</button>
 				<span id="comparsionAnswer"></span>
-				<form>
-					<p>Введите 3 целых числа для расчета корнец уравнения
-						ax²+bx+c=0</p>
-					<p>
-						Число a : <input type="string" id="doublea"> Число
-						b : <input type="string" id="doubleb"> Число c : <input
-							type="string" id="doublec">
-					</p>
-				</form>
-				<button id="quadraticEquationButton" class="btn btn-primary">Посчитать</button>
-				<span id="quadraticEquationAnswer"></span>
-				<p>Двумерный массив из 8 строк по 5 столбцов в каждой из
-					случайных целых чисел из отрезка [10;99].</p>
-				<span id="java3randomarray1"></span>
-				<p>Двумерный массив из 5 строк по 8 столбцов в каждой из
-					случайных целых чисел из отрезка [-99;99].</p>
-				<span id="java3randomarray2"></span>
 			</div>
 		</div>
 	</div>
@@ -142,7 +125,7 @@
 	<script>
 		$(function() {
 			$('#printWeb').load(
-					"/java3");
+					"/dataspbmainservlet");
 			$('#comparsionButton').click(
 					function() {
 						var doublem = $('#doublem').val();

@@ -23,7 +23,15 @@ public class ExcelParse {
 		while (it.hasNext()) {
 			Row row = it.next();
 			ConcertOrganization tempConcertOrganization = new ConcertOrganization();
-			tempConcertOrganization.setNumber((int) row.getCell(0).getNumericCellValue());
+			switch (row.getCell(0).getCellType()) {
+			case Cell.CELL_TYPE_NUMERIC:
+				tempConcertOrganization.setNumber((int) row.getCell(0).getNumericCellValue());
+				break;
+			case Cell.CELL_TYPE_STRING:
+				tempConcertOrganization.setNumber(Integer.parseInt(row.getCell(0).getStringCellValue()));
+				break;
+			}
+			
 			tempConcertOrganization.setFullName(row.getCell(1).getStringCellValue());
 			tempConcertOrganization.setShortName(row.getCell(2).getStringCellValue());
 			tempConcertOrganization.setType(row.getCell(3).getStringCellValue());
@@ -33,10 +41,17 @@ public class ExcelParse {
 			tempConcertOrganization.setNearestSubway(row.getCell(7).getStringCellValue());
 			tempConcertOrganization.setDirector(row.getCell(8).getStringCellValue());
 			tempConcertOrganization.setPhone(row.getCell(9).getStringCellValue());
-			tempConcertOrganization.setEmail(row.getCell(10).getStringCellValue());
-			tempConcertOrganization.setMunicipality(row.getCell(11).getStringCellValue());
-			tempConcertOrganization.setInn(Long.parseLong(row.getCell(12).getStringCellValue()));
-			tempConcertOrganization.setOgrn(Long.parseLong(row.getCell(13).getStringCellValue()));
+			tempConcertOrganization.setFax(row.getCell(10).getStringCellValue());
+			tempConcertOrganization.setEmail(row.getCell(12).getStringCellValue());
+			tempConcertOrganization.setMunicipality(row.getCell(13).getStringCellValue());
+			try {
+				tempConcertOrganization.setInn(Long.parseLong(row.getCell(14).getStringCellValue()));
+			} catch (NumberFormatException e) {
+			}
+			try {
+				tempConcertOrganization.setOgrn(Long.parseLong(row.getCell(15).getStringCellValue()));
+			} catch (NumberFormatException e) {
+			}
 			listOfConcertOrganization.add(tempConcertOrganization);
 		}
 		return listOfConcertOrganization;

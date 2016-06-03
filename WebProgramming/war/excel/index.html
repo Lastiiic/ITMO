@@ -9,10 +9,12 @@
 <meta name="author" content="Alexandra">
 <link rel="icon" href="/favicon.ico">
 
-<title>Практическое задание 3</title>
+<title>Парсинг данных из Excel</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Datatables -->
+<link rel="stylesheet" type="text/css" href="/css/datatables.min.css"/>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -77,7 +79,7 @@
 	<div class="container">
 		<div class="form-group">
 			<div class="jumbotron">
-			<p>Печать данных из первой части 3 практического задания по языку Java</p>
+			<p>Задание на парсинг данных из Excel</p>
 				<span id="printWeb"></span>
 				<form>
 					<p>Введите 2 числа</p>
@@ -88,8 +90,8 @@
 						Число n : <input type="string" id="doublen">
 					</p>
 				</form>
-				<button id="comparsionButton" class="btn btn-primary">Узнай какое из них ближе к 10</button>
-				<span id="comparsionAnswer"></span>
+				<button id="allentry" class="btn btn-primary">Вывод всех записей</button>
+				<span id="output"></span>
 			</div>
 		</div>
 	</div>
@@ -113,6 +115,7 @@
 	<script src="/js/particles.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/datatables.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="/js/ie10-viewport-bug-workaround.js"></script>
 
@@ -123,32 +126,36 @@
 				});
 	</script>
 	<script>
+// 	$(document).ready(function() {
+// 	    $('#data').DataTable( {
+// 	        "scrollX": true
+// 	    } );
+// 	} );
 		$(function() {
-			$('#printWeb').load(
-					"/dataspbmainservlet");
-			$('#comparsionButton').click(
+// 			$('#printWeb').load(
+// 					"/dataspbmainservlet");
+			$('#allentry').click(
 					function() {
-						var doublem = $('#doublem').val();
-						var doublen = $('#doublen').val();
-
-						$('#comparsionAnswer').load(
-								"/java3comparsion?doublem=" + doublem
-										+ "&doublen=" + doublen);
+						$('#output').load(
+								"/alldataservlet");
+					    $('#data').DataTable( {
+					        "scrollX": true
+					    } );
 					});
-			$('#quadraticEquationButton').click(
-					function() {
-						var doublea = $('#doublea').val();
-						var doubleb = $('#doubleb').val();
-						var doublec = $('#doublec').val();
-						$('#quadraticEquationAnswer').load(
-								"/java3quadraticequation?doublea=" + doublea
-										+ "&doubleb=" + doubleb
-										+ "&doublec=" + doublec);
-					});
-			$('#java3randomarray1').load(
-					"/java3randomarray1");
-			$('#java3randomarray2').load(
-					"/java3randomarray2");
+// 			$('#quadraticEquationButton').click(
+// 					function() {
+// 						var doublea = $('#doublea').val();
+// 						var doubleb = $('#doubleb').val();
+// 						var doublec = $('#doublec').val();
+// 						$('#quadraticEquationAnswer').load(
+// 								"/java3quadraticequation?doublea=" + doublea
+// 										+ "&doubleb=" + doubleb
+// 										+ "&doublec=" + doublec);
+// 					});
+// 			$('#java3randomarray1').load(
+// 					"/java3randomarray1");
+// 			$('#java3randomarray2').load(
+// 					"/java3randomarray2");
 		});
 	</script>
 </body>

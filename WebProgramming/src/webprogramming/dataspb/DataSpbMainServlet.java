@@ -12,31 +12,22 @@ public class DataSpbMainServlet extends HttpServlet {
 			throws IOException {
 		resp.setContentType("text/plain;;charset=UTF-8");
 		ArrayList<ConcertOrganization> list=ExcelParse.Parse();
-		ConcertOrganization temp1;
-		String tempString;
-		ArrayList<String> listOfType=new ArrayList<String>();
-		Iterator<ConcertOrganization> it=list.iterator();
-		int i=0;
-		int j=0;
-		while(it.hasNext()){
-			temp1=it.next();
-			listOfType.add(temp1.getType());
+		ArrayList<String> tempListOfType=new ArrayList<String>();
+		ArrayList<String> listOfType = new ArrayList<String>();  
+		for (ConcertOrganization organization: list)
+		{
+			tempListOfType.add(organization.getType());
+		 }
+		for (String type: tempListOfType)
+		{
+		  if (!listOfType.contains(type)) 
+		  {
+		    listOfType.add(type);
+		  }
+		 }
+		for(String type: listOfType){
+			resp.getWriter().println(type);
 		}
-		while(i<list.size()-1){
-			tempString=listOfType.get(i);
-			j=i+1;
-			while(j<list.size()){
-				if(tempString.equals(listOfType.get(j))){
-					listOfType.remove(j);
-				}
-				j++;
-			}
-			i++;
-		}
-		for(i=0;i<listOfType.size();i++){
-			resp.getWriter().println(listOfType.get(i));
-		}
-		
 		
 	}
 }

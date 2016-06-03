@@ -17,6 +17,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-class>webprogramming.dataspb.DataSpbMainServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>AllDataServlet</servlet-name>
+		<servlet-class>webprogramming.dataspb.AllDataServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Java3</servlet-name>
 		<servlet-class>webprogramming.java3.Java3Servlet</servlet-class>
 	</servlet>
@@ -51,6 +55,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>DataSpbMainServlet</servlet-name>
 		<url-pattern>/dataspbmainservlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AllDataServlet</servlet-name>
+		<url-pattern>/alldataservlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Java3</servlet-name>

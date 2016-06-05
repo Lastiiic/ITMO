@@ -13,8 +13,6 @@
 
 <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-<!-- Datatables -->
-<link rel="stylesheet" type="text/css" href="/css/datatables.min.css"/>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -79,7 +77,7 @@
 	<div class="container">
 		<div class="form-group">
 			<div class="jumbotron">
-			<p>Задание на парсинг данных из Excel</p>
+				<p>Задание на парсинг данных из Excel</p>
 				<span id="printWeb"></span>
 				<form>
 					<p>Введите 2 числа</p>
@@ -90,7 +88,18 @@
 						Число n : <input type="string" id="doublen">
 					</p>
 				</form>
-				<button id="allentry" class="btn btn-primary">Вывод всех записей</button>
+				<p>
+				Выберите тип:
+					<span id="listOfType"></span>
+					<button id="chooseType" class="btn btn-primary">Выбрать</button></p>
+				<p>
+				Выберите ближайшее метро:
+					<span id="listOfMetro"></span>
+					<button id="chooseType" class="btn btn-primary">Выбрать</button></p>
+					<p>
+					<button id="alldata" class="btn btn-primary">Вывести все
+						записи</button>
+				</p>
 				<span id="output"></span>
 			</div>
 		</div>
@@ -115,7 +124,6 @@
 	<script src="/js/particles.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/datatables.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="/js/ie10-viewport-bug-workaround.js"></script>
 
@@ -126,36 +134,29 @@
 				});
 	</script>
 	<script>
-// 	$(document).ready(function() {
-// 	    $('#data').DataTable( {
-// 	        "scrollX": true
-// 	    } );
-// 	} );
 		$(function() {
-// 			$('#printWeb').load(
-// 					"/dataspbmainservlet");
-			$('#allentry').click(
-					function() {
-						$('#output').load(
-								"/alldataservlet");
-					    $('#data').DataTable( {
-					        "scrollX": true
-					    } );
-					});
-// 			$('#quadraticEquationButton').click(
-// 					function() {
-// 						var doublea = $('#doublea').val();
-// 						var doubleb = $('#doubleb').val();
-// 						var doublec = $('#doublec').val();
-// 						$('#quadraticEquationAnswer').load(
-// 								"/java3quadraticequation?doublea=" + doublea
-// 										+ "&doubleb=" + doubleb
-// 										+ "&doublec=" + doublec);
-// 					});
-// 			$('#java3randomarray1').load(
-// 					"/java3randomarray1");
-// 			$('#java3randomarray2').load(
-// 					"/java3randomarray2");
+			$('#listOfType').load("/dataspbmainservlet");
+			$('#chooseType').click(function() {
+				$('#output').load("/alldataservlet");
+			});
+			$('#alldata').click(function() {
+				$('#output').load("/alldataservlet");
+			});
+
+			// 			$('#quadraticEquationButton').click(
+			// 					function() {
+			// 						var doublea = $('#doublea').val();
+			// 						var doubleb = $('#doubleb').val();
+			// 						var doublec = $('#doublec').val();
+			// 						$('#quadraticEquationAnswer').load(
+			// 								"/java3quadraticequation?doublea=" + doublea
+			// 										+ "&doubleb=" + doubleb
+			// 										+ "&doublec=" + doublec);
+			// 					});
+			// 			$('#java3randomarray1').load(
+			// 					"/java3randomarray1");
+			// 			$('#java3randomarray2').load(
+			// 					"/java3randomarray2");
 		});
 	</script>
 </body>

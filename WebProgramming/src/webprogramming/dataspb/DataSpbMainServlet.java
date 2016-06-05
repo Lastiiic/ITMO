@@ -25,9 +25,13 @@ public class DataSpbMainServlet extends HttpServlet {
 		    listOfType.add(type);
 		  }
 		 }
-		for(String type: listOfType){
-			resp.getWriter().println(type);
+		resp.getWriter().println("<select id=\"type\">");
+		int i=0;
+		for(i=0;i<listOfType.size();i++){
+			String type=listOfType.get(i);
+			resp.getWriter().println("<option value="+i+">"+type+"</option>");
 		}
+		resp.getWriter().println("<select id=\"operation\">");
 		
 	}
 }

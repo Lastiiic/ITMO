@@ -37,11 +37,11 @@ public class RandomArray2 extends HttpServlet {
 		}
 
 		resp.getWriter().println("<table border=\"10\">");
-		for (i = 0; i < 8; i++) {
+		for (i = 0; i < 5; i++) {
 			resp.getWriter().println("<tr>");
-			for (j = 0; j < 5; j++) {
+			for (j = 0; j < 8; j++) {
 
-				resp.getWriter().println("<td>" + arrayInt[i * 5 + j] + "</td>");
+				resp.getWriter().println("<td>" + arrayInt[i * 8 + j] + "</td>");
 			}
 			resp.getWriter().println("</tr>");
 		}

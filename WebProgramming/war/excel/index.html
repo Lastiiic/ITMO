@@ -78,26 +78,16 @@
 		<div class="form-group">
 			<div class="jumbotron">
 				<p>Задание на парсинг данных из Excel</p>
-				<span id="printWeb"></span>
-				<form>
-					<p>Введите 2 числа</p>
-					<p>
-						Число m : <input type="string" id="doublem">
-					</p>
-					<p>
-						Число n : <input type="string" id="doublen">
-					</p>
-				</form>
 				<p>
 				Выберите тип:
 					<span id="listOfType"></span>
 					<button id="chooseType" class="btn btn-primary">Выбрать</button></p>
-				<p>
-				Выберите ближайшее метро:
-					<span id="listOfMetro"></span>
-					<button id="chooseType" class="btn btn-primary">Выбрать</button></p>
-					<p>
-					<button id="alldata" class="btn btn-primary">Вывести все
+				<!-- 				<p> -->
+				<!-- 				Выберите ближайшее метро: -->
+				<!-- 					<span id="listOfMetro"></span> -->
+				<!-- 					<button id="chooseMetro" class="btn btn-primary">Выбрать</button></p> -->
+				<!-- 					<p> -->
+				<button id="alldata" class="btn btn-primary">Вывести все
 						записи</button>
 				</p>
 				<span id="output"></span>
@@ -137,26 +127,20 @@
 		$(function() {
 			$('#listOfType').load("/dataspbmainservlet");
 			$('#chooseType').click(function() {
-				$('#output').load("/alldataservlet");
+				$('#output').load("/choosemetroservlet");
 			});
+			$('#chooseType').click(
+					function() {
+						var type = $('#type').val();
+						$('#output').load(
+								"/choosetypeservlet?type=" + type);
+					});
+// 			$('#chooseMetro').click(function() {
+// 				$('#output').load("/alldataservlet");
+// 			});
 			$('#alldata').click(function() {
 				$('#output').load("/alldataservlet");
 			});
-
-			// 			$('#quadraticEquationButton').click(
-			// 					function() {
-			// 						var doublea = $('#doublea').val();
-			// 						var doubleb = $('#doubleb').val();
-			// 						var doublec = $('#doublec').val();
-			// 						$('#quadraticEquationAnswer').load(
-			// 								"/java3quadraticequation?doublea=" + doublea
-			// 										+ "&doubleb=" + doubleb
-			// 										+ "&doublec=" + doublec);
-			// 					});
-			// 			$('#java3randomarray1').load(
-			// 					"/java3randomarray1");
-			// 			$('#java3randomarray2').load(
-			// 					"/java3randomarray2");
 		});
 	</script>
 </body>

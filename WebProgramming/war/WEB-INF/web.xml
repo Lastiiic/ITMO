@@ -21,6 +21,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-class>webprogramming.dataspb.AllDataServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>ChooseTypeServlet</servlet-name>
+		<servlet-class>webprogramming.dataspb.ChooseTypeServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Java3</servlet-name>
 		<servlet-class>webprogramming.java3.Java3Servlet</servlet-class>
 	</servlet>
@@ -83,6 +87,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>FormWithException</servlet-name>
 		<url-pattern>/formWithException</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ChooseTypeServlet</servlet-name>
+		<url-pattern>/choosetypeservlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

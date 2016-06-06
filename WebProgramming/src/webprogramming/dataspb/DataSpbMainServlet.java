@@ -29,7 +29,7 @@ public class DataSpbMainServlet extends HttpServlet {
 		int i=0;
 		for(i=0;i<listOfType.size();i++){
 			String type=listOfType.get(i);
-			resp.getWriter().println("<option value="+i+">"+type+"</option>");
+			resp.getWriter().println("<option value="+type+">"+type+"</option>");
 		}
 		resp.getWriter().println("<select id=\"operation\">");
 		

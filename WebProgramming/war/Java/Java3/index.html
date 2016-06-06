@@ -77,8 +77,12 @@
 	<div class="container">
 		<div class="form-group">
 			<div class="jumbotron">
-			<p>Печать данных из первой части 3 практического задания по языку Java</p>
-				<span id="printWeb"></span>
+				<p>
+					Печать данных из первой части 3 практического задания по языку Java
+					<button id="printwebbutton" class="btn btn-primary">Напечатать</button>
+				</p>
+
+				<span id="printweb"></span>
 				<form>
 					<p>Введите 2 числа</p>
 					<p>
@@ -88,14 +92,15 @@
 						Число n : <input type="string" id="doublen">
 					</p>
 				</form>
-				<button id="comparsionButton" class="btn btn-primary">Узнай какое из них ближе к 10</button>
+				<button id="comparsionButton" class="btn btn-primary">Узнай
+					какое из них ближе к 10</button>
 				<span id="comparsionAnswer"></span>
 				<form>
-					<p>Введите 3 целых числа для расчета корнец уравнения
+					<p>Введите 3 целых числа для расчета корней уравнения
 						ax²+bx+c=0</p>
 					<p>
-						Число a : <input type="string" id="doublea"> Число
-						b : <input type="string" id="doubleb"> Число c : <input
+						Число a : <input type="string" id="doublea"> Число b : <input
+							type="string" id="doubleb"> Число c : <input
 							type="string" id="doublec">
 					</p>
 				</form>
@@ -103,9 +108,11 @@
 				<span id="quadraticEquationAnswer"></span>
 				<p>Двумерный массив из 8 строк по 5 столбцов в каждой из
 					случайных целых чисел из отрезка [10;99].</p>
+				<button id="array1button" class="btn btn-primary">Посчитать</button>
 				<span id="java3randomarray1"></span>
 				<p>Двумерный массив из 5 строк по 8 столбцов в каждой из
 					случайных целых чисел из отрезка [-99;99].</p>
+				<button id="array2button" class="btn btn-primary">Посчитать</button>
 				<span id="java3randomarray2"></span>
 			</div>
 		</div>
@@ -141,8 +148,10 @@
 	</script>
 	<script>
 		$(function() {
-			$('#printWeb').load(
-					"/java3");
+			$('#printwebbutton').click(function() {
+				$('#printweb').load("/java3");
+			});
+
 			$('#comparsionButton').click(
 					function() {
 						var doublem = $('#doublem').val();
@@ -159,13 +168,15 @@
 						var doublec = $('#doublec').val();
 						$('#quadraticEquationAnswer').load(
 								"/java3quadraticequation?doublea=" + doublea
-										+ "&doubleb=" + doubleb
-										+ "&doublec=" + doublec);
+										+ "&doubleb=" + doubleb + "&doublec="
+										+ doublec);
 					});
-			$('#java3randomarray1').load(
-					"/java3randomarray1");
-			$('#java3randomarray2').load(
-					"/java3randomarray2");
+			$('#array1button').click(function() {
+				$('#java3randomarray1').load("/java3randomarray1");
+			});
+			$('#array2button').click(function() {
+				$('#java3randomarray2').load("/java3randomarray2");
+			});
 		});
 	</script>
 </body>

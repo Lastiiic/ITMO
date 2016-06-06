@@ -1,61 +1,32 @@
 package webprogramming;
 
-import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
 public class Ostrich extends Bird {
-	public boolean headInSand;
-	public Ostrich() throws IOException {
+	protected boolean headInSand=false;
+
+
+	public Ostrich(){
+		super();
+	}
+	public Ostrich(String inColor, int inSatiety, String inName) {
+		super(inColor,inSatiety,inName);
+	}
+	public Ostrich(String inColor, int inSatiety, String inName, boolean here) {
+		super(inColor,inSatiety,inName,here);
 	}
 	public Ostrich(String inColor,int inSatiety) throws IOException {
-		this.color=inColor;
-		this.satiety=inSatiety;
+		super(inColor,inSatiety);
 	}
-	public Ostrich(String inColor,int inSatiety, String inName) throws IOException {
-		this.color=inColor;
-		this.satiety=inSatiety;
-		this.name=inName;
-	}
-
-	public int[] meet(int i, Bird b){
-		int[] result={0,0};
-		int[] outputMeet;
-		if (b.getClass().equals(Parrot.class)){
-
-			outputMeet=b.meet(i, b);
-			switch(outputMeet[0]){
-			case 0:
-				this.fright=false;
-				
-			case 1:
-				result[0]=2;
-			case 2:
-				this.fright=false;
-				result[0]=1;
-			}
-			if(outputMeet[1]==1){
+	public void saveTheHead(){
+		if(!this.headInSand){
+			if (Math.random() > 0.5) {
 				this.fright=true;
+				this.headInSand=true;
+			}
+			else{
+				this.satiety=(int) (this.satiety*0.5);
 			}
 		}
-		else if (b.getClass().equals(Eagle.class)){
-			outputMeet=b.meet(i, b);
-			switch(outputMeet[0]){
-			case 0:
-				this.fright=false;
-				
-			case 1:
-				result[0]=2;
-			case 2:
-				this.fright=false;
-				result[0]=1;
-			}
-		}
-		else if (b.getClass().equals(Ostrich.class)){
-				this.fright=false;
-				
-		}
-		return result;
 	}
 }
